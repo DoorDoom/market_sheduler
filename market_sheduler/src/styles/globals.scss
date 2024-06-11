@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Circe Rounded";
+  src: local("Circe Rounded"),
+    url("../../public/fonts/CirceRounded-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Circe Rounded";
+  src: local("Circe Rounded Bold"),
+    url("../../public/fonts/CirceRounded-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Circe Rounded";
+  src: local("Circe Rounded Light"),
+    url("../../public/fonts/CirceRounded-Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: light;
+}
+
+html,
+body,
+main {
+  height: 100%;
+}
+
+body {
+  font-family: "Circe Rounded";
+}
+
+.content-centered {
+  @apply flex justify-center items-center;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+h1 {
+  @apply text-5xl;
+}

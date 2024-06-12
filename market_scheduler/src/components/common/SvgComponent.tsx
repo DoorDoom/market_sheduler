@@ -1,7 +1,7 @@
 import React from "react";
 
 const downloadIcon = (path: string) =>
-  React.lazy(() => import(`../../public/images/${path}.svg`));
+  React.lazy(() => import(`../../../public/images/${path}.svg`));
 
 const SvgComponent = ({ svgPath }: Props) => {
   const DynamicSvg = downloadIcon(svgPath);

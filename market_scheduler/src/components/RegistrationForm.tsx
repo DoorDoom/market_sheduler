@@ -1,6 +1,7 @@
 "use client";
 
-import { Checkbox, Input } from "antd";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import IconView from "./common/IconView";
 import Link from "next/link";
 import CustomButton from "./common/CustomButton";
@@ -18,13 +19,17 @@ const RegistrationForm = () => {
         placeholder="E-mail"
         onChange={(event) => setForm(event.target.value)}
       />
-      <Input
+      {/* <Input
         className="w-full h-9"
         placeholder="Пароль"
         // onChange={(event) => setForm(event.target.value)}
         suffix={<IconView svgPath="EyeOpen" style="h-4 w-4" />}
+      /> */}
+      <FormControlLabel
+        control={<Checkbox />}
+        className="ml-1 mt-1"
+        label="Запомнить меня"
       />
-      <Checkbox className="ml-1 mt-1">Запомнить меня</Checkbox>
       <CustomButton
         text="Войти"
         style="mt-6 w-85 h-12 text-lg"

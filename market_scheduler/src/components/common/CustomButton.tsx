@@ -1,19 +1,35 @@
-// "use server";
+"use client";
 
-import { Button } from "antd";
+import theme from "@/themes/defaultTheme";
+import { ThemeProvider } from "@mui/material";
+import Button from "@mui/material/Button";
 
 const CustomButton = ({ text, style, type, onClick }: Props) => {
   return (
-    <Button type={type} className={style} onClick={onClick}>
-      {text}
-    </Button>
+    <ThemeProvider theme={theme}>
+      <Button
+        variant="contained"
+        onClick={onClick}
+        color={type ?? "primary"}
+        className={style}
+      >
+        {text}
+      </Button>
+    </ThemeProvider>
   );
 };
 
 type Props = {
   text: string;
   style?: string;
-  type?: "text" | "primary" | "link" | "default";
+  type?:
+    | "inherit"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "error"
+    | "info"
+    | "warning";
   onClick: () => void;
 };
 

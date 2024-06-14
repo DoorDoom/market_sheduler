@@ -1,29 +1,5 @@
-"use client";
-
-import { Button } from "@mui/material";
-import { createTheme, styled } from "@mui/material/styles";
-import { orange } from "@mui/material/colors";
-
-// declare module "@mui/material/styles" {
-//   interface Theme {
-//     status: {
-//       default: string;
-//     };
-//   }
-//   // allow configuration using `createTheme`
-//   interface ThemeOptions {
-//     status?: {
-//       default?: string;
-//     };
-//   }
-// }
-
-// const CustomButton = styled(Button)(({ theme }) => ({
-//   color: theme.status.default,
-//   "&.Mui-checked": {
-//     color: theme.status.default,
-//   },
-// }));
+import { BorderColor } from "@mui/icons-material";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   components: {
@@ -32,6 +8,50 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           borderRadius: 30,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          background: "#fff",
+          borderRadius: 8,
+          fontSize: 14,
+        },
+        notchedOutline: {
+          borderColor: "#ECECEC",
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          height: 36,
+          color: "#79747F",
+        },
+        input: {
+          "&::placeholder": {
+            opacity: 1,
+            fontSize: 12,
+          },
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          width: 24,
+          height: 24,
+          borderRadius: 20,
+        },
+        // .width.C8C5CD
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: 12,
+          color: "#79747F",
         },
       },
     },

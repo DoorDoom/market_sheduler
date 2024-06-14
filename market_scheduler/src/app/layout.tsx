@@ -13,31 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {/* <AntdRegistry>
-          <ConfigProvider
-            theme={{
-              components: {
-                Input: {
-                  colorTextPlaceholder: "#79747F",
-                  borderRadius: 8,
-                  colorBorder: "#ECECEC",
-                },
-                Checkbox: {
-                  colorTextDescription: "#79747F",
-                  colorText: "#79747F",
-                  colorBorder: "#C8C5CD",
-                  fontSize: 12,
-                },
-                Button: {
-                  colorPrimary: "#8D7FC7",
-                  borderRadius: 30,
-                },
-              },
-            }}
-          > */}
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

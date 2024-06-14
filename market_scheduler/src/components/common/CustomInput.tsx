@@ -1,38 +1,45 @@
 // "use server";
 
-import {
-  InputAdornment,
-  FilledInput,
-  FormControl,
-  Input,
-  InputLabel,
-} from "@mui/material";
+import theme from "@/themes/defaultTheme";
+import { InputAdornment, TextField, ThemeProvider } from "@mui/material";
 
-import { NodeElement } from "rc-tree/lib/interface";
 import { ChangeEvent } from "react";
+import { IconButton } from "@mui/material";
+import EyeOpen from "../../../public/images/EyeOpen.svg";
+import EyeOpenSlash from "../../../public/images/EyeOpenSlash.svg";
+import React from "react";
 
-const CustomInput = ({ placeholder, style, onChange, suffix }: Props) => {
+const CustomInput = ({ placeholder, style, onChange, type }: Props) => {
+  const [showPassword, setShowPassword] = React.useState(false);
   return (
-    <FormControl className={style} variant="filled">
-      <InputLabel htmlFor="filled-adornment-password">{placeholder}</InputLabel>
-      <FilledInput
-        id="filled-adornment-password"
+    <ThemeProvider theme={theme}>
+      <TextField
+        placeholder={placeholder}
+        variant="outlined"
+        className={style}
         onChange={onChange}
-        // type={showPassword ? 'text' : 'password'}
-        // endAdornment={
-        // <InputAdornment position="end">
-        //   <IconButton
-        //     aria-label="toggle password visibility"
-        //     onClick={handleClickShowPassword}
-        //     onMouseDown={handleMouseDownPassword}
-        //     edge="end"
-        //   >
-        //     {showPassword ? <VisibilityOff /> : <Visibility />}
-        //   </IconButton>
-        // </InputAdornment>
-        // }
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              {type === "password" ? (
+                <IconButton
+                  edge="end"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? (
+                    <EyeOpenSlash className="h-5 w-5" />
+                  ) : (
+                    <EyeOpen className="h-5 w-5" />
+                  )}
+                </IconButton>
+              ) : (
+                <></>
+              )}
+            </InputAdornment>
+          ),
+        }}
       />
-    </FormControl>
+    </ThemeProvider>
   );
 };
 
@@ -40,7 +47,7 @@ type Props = {
   placeholder: string;
   style?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  suffix?: NodeElement;
+  type?: "password";
 };
 
 export default CustomInput;
